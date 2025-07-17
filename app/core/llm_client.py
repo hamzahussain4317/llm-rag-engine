@@ -1,20 +1,10 @@
-# app/core/llm_client.py
-"""
-Thin async client that talks to a local Ollama model.
-Replace 'falcon3:1b' with any tag you pulled, e.g. mistral, llama2, gemma:2b.
-Ollama must be running on http://localhost:11434  (it starts automatically).
-"""
-
 import httpx
 import asyncio
 
 OLLAMA_HOST = "http://localhost:11434"
-MODEL_TAG   = "falcon3:1b"          # <- your downloaded model
+MODEL_TAG   = "falcon3:1b"   
 
 async def ask_llm(question: str) -> str:
-    """
-    Send a user message to the Ollama chat endpoint and return the assistant's reply.
-    """
     payload = {
         "model": MODEL_TAG,
         "messages": [
